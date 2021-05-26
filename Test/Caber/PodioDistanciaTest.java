@@ -43,5 +43,6 @@ public class PodioDistanciaTest {
         assertEquals(2,primeroActual);
         assertEquals(1,segundoActual);
         assertEquals(3,terceroActual);
+
     }
 }
