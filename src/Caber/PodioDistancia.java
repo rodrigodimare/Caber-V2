@@ -18,30 +18,30 @@ public class PodioDistancia extends Podio {
 			puntajeConcursante = c.puntajeTotal();
 
 			int cant = ganadores.size();
-			
-			if(cant<3) {
-				int i = 0;
-				while(i<cant && ganadores.get(i).puntajeTotal()>puntajeConcursante) {
-					i++;
+			if (puntajeConcursante != 0.0) {
+				if (cant < 3) {
+					int i = 0;
+					while (i < cant && ganadores.get(i).puntajeTotal() > puntajeConcursante) {
+						i++;
+					}
+					ganadores.add(i, c);
 				}
-				ganadores.add(i,c);
-			}
-			
-			else {
-				int i = 0;
-				while(i<3 && ganadores.get(i).puntajeTotal()>puntajeConcursante) {
-					i++;
-				}
-				
-				if(i<3) {
-					ganadores.add(i,c);
-					ganadores.remove(3);
-				}
-			}
 
+				else {
+					int i = 0;
+					while (i < 3 && ganadores.get(i).puntajeTotal() > puntajeConcursante) {
+						i++;
+					}
+
+					if (i < 3) {
+						ganadores.add(i, c);
+						ganadores.remove(3);
+					}
+				}
+			}
 		}
-		
+
 		return ganadores;
 	}
-	
+
 }
