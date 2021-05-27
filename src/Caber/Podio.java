@@ -1,7 +1,5 @@
 package Caber;
 
-import Caber.Concursante;
-
 import java.util.ArrayList;
 
 public abstract class Podio {

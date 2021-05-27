@@ -1,8 +1,5 @@
 package Caber;
 
-import Caber.Concursante;
-import Caber.Podio;
-
 import java.util.ArrayList;
 
 public class PodioConsistencia extends Podio {

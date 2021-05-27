@@ -1,9 +1,5 @@
 package Caber;
 
-import Caber.Concursante;
-import Caber.PodioConsistencia;
-import Caber.PodioDistancia;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -16,15 +12,13 @@ public class Torneo {
 	private int cantidadParticipantes;
 	private ArrayList<Concursante> concursantes;
 
-	// inicializacion de torneo
-	// agregar cantidad de participantes
 	public Torneo() {
 		concursantes = new ArrayList<Concursante>();
 	}
 
-	public void cargarConcursantes(String nombre_archivo) throws FileNotFoundException {
+	public void cargarConcursantes(String archivoEntrada) throws FileNotFoundException {
 
-		Scanner entrada = new Scanner(new File(nombre_archivo));
+		Scanner entrada = new Scanner(new File(archivoEntrada));
 
 		if (entrada.hasNext())
 			this.cantidadParticipantes = entrada.nextInt();
@@ -45,13 +39,13 @@ public class Torneo {
 		entrada.close();
 	}
 	
-	public void generarArchivoGanadores() {
+	public void guardarResultados(String archivoSalida) {
 		
 		FileWriter fichero = null;
 		PrintWriter pw = null;
 
 		try {
-			fichero = new FileWriter("archivo.out");
+			fichero = new FileWriter(archivoSalida);
 			pw = new PrintWriter(fichero);
 			
 			ArrayList<Concursante> ganadoresConsistencia = new PodioConsistencia().obtenerGanadores(concursantes);
@@ -78,7 +72,6 @@ public class Torneo {
 	}
 
 
-	// para prueba (o no?)
 	public ArrayList<Concursante> getConcursantes() {
 		return concursantes;
 	}
